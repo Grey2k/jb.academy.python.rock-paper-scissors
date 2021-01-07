@@ -99,5 +99,8 @@ files:
     RPSTest("rps.game").run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/78/stages/432/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 07 Jan 2021 21:56:21 UTC
+record: 2
