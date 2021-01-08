@@ -1,0 +1,14 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    # read animals.txt
+    # and write animals_new.txt
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8341#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Fri, 08 Jan 2021 20:40:05 UTC
+record: -1
