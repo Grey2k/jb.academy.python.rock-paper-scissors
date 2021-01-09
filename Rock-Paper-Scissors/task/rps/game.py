@@ -16,10 +16,25 @@ SCORE_WIN = 100
 combinations = {ROCK: PAPER, PAPER: SCISSORS, SCISSORS: ROCK}
 
 
-def is_winner(pick: str, option: str):
-    if combinations[pick] == option:
+def is_winner(pick: str, option: str, options: list):
+    copy = options[:]
+
+    i = 0
+    for item in options:
+        if item == pick:
+            del copy[i]
+            break
+
+        i += 1
+
+    new_list = copy[i:] + copy[:i]
+
+    winners = new_list[:len(new_list) // 2]
+    losers = new_list[len(new_list) // 2:]
+
+    if option in winners:
         return False
-    if combinations[option] == pick:
+    elif option in losers:
         return True
 
     return None
@@ -48,10 +63,19 @@ input_name = input('Enter your name: ')
 print(f'Hello, {input_name}')
 player_rating = get_rating(input_name)
 
+game_options = input().strip()
+
+if game_options == '':
+    game_options = list(combinations.keys())
+else:
+    game_options = game_options.split(',')
+
+print("Okay, let's start")
+
 while True:
     input_pick = input().strip()
 
-    if input_pick not in (list(combinations.keys()) + [COMMAND_EXIT, COMMAND_RATING]):
+    if input_pick not in (game_options + [COMMAND_EXIT, COMMAND_RATING]):
         print('Invalid input')
         continue
 
@@ -62,8 +86,8 @@ while True:
         print('Your rating: {}'.format(player_rating))
         continue
 
-    input_option = random.choice(list(combinations.keys()))
-    result = is_winner(input_pick, input_option)
+    input_option = random.choice(game_options)
+    result = is_winner(input_pick, input_option, game_options)
 
     if result is True:
         print(f'Well done. The computer chose {input_option} and failed')

@@ -228,5 +228,8 @@ files:
     Bob 50
   learner_created: true
 feedback_link: https://hyperskill.org/projects/78/stages/435/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 09 Jan 2021 14:04:56 UTC
 record: -1
